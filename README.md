@@ -35,7 +35,7 @@ So `frequency("blue")` would return 0.4 as a result.
 This means you need to track the total number of words in the input, 
 as frequency is `numberOfOccurences / totalNumberOfWords`
 
-You probably need to make this all methods on a class, not just a simple
+You probably need to make this all methods on a c   lass, not just a simple
 script file. That way the total number of words can be kept ina instance var, making
 the frequency calculation very easy.
 
