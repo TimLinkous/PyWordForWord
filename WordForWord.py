@@ -33,7 +33,10 @@ class WordForWord:
         ## Convert the input string to lowercase and remove punctuation
         self.total_words = len(words)  #Update the total number of words
         for word in words:
-            self.word_counts[word] =+ 1  #Count the occurrences of each word
+            if word in self.word_counts: 
+                self.word_counts[word] += 1
+            else:
+                self.word_counts[word] = 1  #Count the occurrences of each word
         return dict(self.word_counts) #return word counts as dict
     
     def letter_frequency(self, input_str):
@@ -78,10 +81,10 @@ class WordForWord:
         output_file.write(f"File: {filename}\n")
         output_file.write(f"Lines: {lines}, Words: {words}, Characters: {characters}\n")
         output_file.write(f"Word Frequencies:\n")
-        for word, count in word_freq.items():
+        for word, count in sorted(word_freq.items(), key=lambda item: item[1], reverse=True):
             output_file.write(f"{word}: {count}\n")
         output_file.write("Letter Frequencies:\n")
-        for letter, count in letter_freq.items():
+        for letter, count in sorted(letter_freq.items(), key=lambda item: item[1], reverse=True):
             output_file.write(f"{letter}: {count}\n")
 
 if __name__ == "__main__":
